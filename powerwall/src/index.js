@@ -4,10 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Import BLUI Theming
+import { ThemeProvider, createTheme } from '@mui/material';
+import CssBaseline from '@mui/material/CssBaseline';
+import * as BLUIThemes from '@brightlayer-ui/react-themes';
+import '@brightlayer-ui/react-themes/open-sans';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={createTheme(BLUIThemes.blue)}>
+      <CssBaseline/>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
 
