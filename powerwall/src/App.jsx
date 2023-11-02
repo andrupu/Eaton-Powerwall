@@ -19,7 +19,7 @@ function App() {
           Learn React
         </a>
       </header>
-      <Routes>[Pages]</Routes>
+      {/* <Routes>[Pages]</Routes> */}
     </div>
   );
 }

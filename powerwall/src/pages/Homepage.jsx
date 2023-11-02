@@ -1,17 +1,43 @@
-import React from 'react';
-import MenuIcon form '@mui/icons-material/Menu';
+import React from "react";
+import {
+  AppBar,
+  Box,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  Toolbar,
+  IconButton,
+  Typography,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import HomeIcon from "@mui/icons-material/Home";
 
-export const Homepage = (): JSX.Element => {
-    const theme = useTheme();
+// function homepage (){
+//     return 1;
+// }
 
-    return (
-        <Box>
-            <AppBar>
-                <IconButton>
-                    <MenuIcon />
-                </IconButton>
-                <h1>Homepage</h1>
-            </AppBar>
-        </Box>
-    );
+export const Homepage = () => {
+  return (
+    <>
+      <AppBar>
+        <Toolbar>
+          <IconButton color="inherit">
+            <MenuIcon />
+          </IconButton>
+          <Typography variant={"h6"}>Hompage</Typography>
+        </Toolbar>
+      </AppBar>
+      <Box>
+        <List>
+          <ListItem>
+            <ListItemText primary="My Home" secondary="Status" />
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+          </ListItem>
+        </List>
+      </Box>
+    </>
+  );
 };
