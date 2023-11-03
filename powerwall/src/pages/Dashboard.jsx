@@ -19,12 +19,31 @@ import HomeIcon from "@mui/icons-material/Home";
 import ElectricCarIcon from "@mui/icons-material/ElectricCar";
 import SolarPowerIcon from "@mui/icons-material/SolarPower";
 import ElectricMeterIcon from "@mui/icons-material/ElectricMeter";
+import { useTheme } from "@mui/material/styles";
 
 // function homepage (){
 //     return 1;
 // }
 
+const heroAvatarStyles = {
+  display: "flex",
+  border: "3px solid",
+  borderRadius: "50%",
+  height: "150px",
+  width: "150px",
+  justifyContent: "center",
+  alignItems: "center",
+
+  // WIP: create illumination effect
+  boxShadow: `0 0 0 2px rgba(100, 100, 100, 0.1),
+              0 0 0 4px rgba(255, 255, 255, 0.2),
+              0 0 0 6px rgba(255, 255, 255, 0.3),
+              0 0 0 8px rgba(200, 200, 200, 0.4);`,
+};
+
 export const Dashboard = () => {
+  const theme = useTheme();
+
   return (
     <>
       <AppBar position={"sticky"}>
@@ -36,18 +55,68 @@ export const Dashboard = () => {
         </Toolbar>
       </AppBar>
 
-      <Box>
-        <Box>
-          <HeroBanner>
+      <Box
+        sx={{
+          display: "flex",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            flex: 1,
+            padding: "15px",
+            borderRight: `3px solid ${theme.palette.text.primary}`,
+            minHeight: "calc(100vh - 64px)",
+            [theme.breakpoints.down("sm")]: {
+              minHeight: "calc(100vh - 56px)",
+            },
+          }}
+        >
+          <Box sx={heroAvatarStyles}>
             <Hero
-              icon={<HomeIcon />}
-              label="Efficiency"
+              icon={<SolarPowerIcon />}
+              label="Top Hero"
               ChannelValueProps={{ value: "12.23", units: "kWh" }}
             />
-          </HeroBanner>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-around",
+              width: "100%",
+            }}
+          >
+            <Box sx={heroAvatarStyles}>
+              <Hero
+                icon={<ElectricMeterIcon />}
+                label="Left Hero"
+                ChannelValueProps={{ value: "12.23", units: "kWh" }}
+              />
+            </Box>
+            <Box sx={heroAvatarStyles}>
+              <Hero
+                icon={<HomeIcon />}
+                label="Right Hero"
+                ChannelValueProps={{ value: "12.23", units: "kWh" }}
+              />
+            </Box>
+          </Box>
+          <Box sx={heroAvatarStyles}>
+            <Hero
+              icon={<ElectricMeterIcon />}
+              label="Bottom Hero"
+              ChannelValueProps={{ value: "12.23", units: "kWh" }}
+            />
+          </Box>
         </Box>
         <Divider />
-        <Box>
+        <Box
+          sx={{
+            flex: 1,
+          }}
+        >
           <List>
             <InfoListItem
               title="HOME USAGE"
