@@ -26,7 +26,7 @@ export const Homepage = () => {
           <IconButton color="inherit">
             <MenuIcon />
           </IconButton>
-          <Typography variant={"h6"}>Hompage</Typography>
+          <Typography variant={"h6"}>Homepage</Typography>
         </Toolbar>
       </AppBar>
 
