@@ -13,12 +13,28 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
 import ElectricCarIcon from "@mui/icons-material/ElectricCar";
-
+import { cars } from "../database/cars"; // named import
+// import mything from "../database/cars"; // default import
+// import * as starImport from "../database/cars";
 // function homepage (){
 //     return 1;
 // }
 
 export const Homepage = () => {
+  // const [car1, car2, car3, car4] = cars;
+  const myCarElements = [];
+  for (let i = 0; i < cars.length; i++) {
+    console.log(cars[i]);
+    myCarElements.push(
+      <ListItem>
+        <ListItemText primary={cars[i].name} secondary={cars[i].status} />
+        <ListItemIcon>
+          <ElectricCarIcon />
+        </ListItemIcon>
+      </ListItem>
+    );
+  }
+
   return (
     <>
       <AppBar position={"sticky"}>
@@ -39,7 +55,7 @@ export const Homepage = () => {
             </ListItemIcon>
           </ListItem>
           <ListItem>
-            <ListItemText primary="Car 1" secondary="Status" />
+            <ListItemText primary={cars[0].name} secondary="Status" />
             <ListItemIcon>
               <ElectricCarIcon />
             </ListItemIcon>
@@ -50,6 +66,20 @@ export const Homepage = () => {
               <ElectricCarIcon />
             </ListItemIcon>
           </ListItem>
+          {cars.map((currentCar) => (
+            <>
+              <ListItem>
+                <ListItemText
+                  primary={currentCar.name}
+                  secondary={currentCar.status}
+                />
+                <ListItemIcon>
+                  <ElectricCarIcon />
+                </ListItemIcon>
+              </ListItem>
+            </>
+          ))}
+          {myCarElements}
         </List>
       </Box>
     </>
