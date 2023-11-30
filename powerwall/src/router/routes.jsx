@@ -1,4 +1,4 @@
-import { Homepage, Dashboard, Car1, Car2 } from "../pages";
+import { Homepage, Dashboard, Car, Car1, Car2 } from "../pages";
 
 export const Pages = [
   {
