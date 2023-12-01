@@ -21,16 +21,13 @@ export const Car = () => {
   let { CarID } = useParams();
   const [car, setCar] = React.useState("");
 
-  const handleButton = (event) => {
+  const handleAddButton = (event) => {
     // get new Car to add
     setCar(event.addCar.value);
 
     // set CarID to next ID Number
     CarID(event.addCar.CarID + 1);
   };
-
-  //   let params = useParams();
-  //   console.log(params);
 
   return (
     <>
@@ -62,7 +59,7 @@ export const Car = () => {
               <FormHelperText error>Please Select a Car to Add</FormHelperText>
             </FormControl>
             {/* TO DO: Add Event Handler to get and set new car to add to Homepage */}
-            <Button onClick={handleButton}>Add Car</Button>
+            <Button onClick={handleAddButton}>Add Car</Button>
           </Box>
           <span>Car by ID: {CarID} </span>
           <span>Name: {car} </span>

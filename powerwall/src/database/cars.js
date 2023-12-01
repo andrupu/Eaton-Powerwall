@@ -2,8 +2,8 @@
 
 export const cars = [
     {name: "Telsa Model S", CarID: 1, status: "Charging"},
-    {name: "Tesla Model Y", CarID: 2, status: "Charging"},
-    {name: "Tesla Model X", CarID: 3, status: "Charging"},
+    {name: "Tesla Model Y", CarID: 2, status: "Fully Charged"},
+    {name: "Tesla Model X", CarID: 3, status: "Unplugged"},
     {name: "Hyundai Ioniq", CarID: 4, status: "Charging"},
 ];
 
