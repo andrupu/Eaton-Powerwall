@@ -16,12 +16,8 @@ import ElectricCarIcon from "@mui/icons-material/ElectricCar";
 import { cars } from "../database/cars"; // named import
 // import mything from "../database/cars"; // default import
 // import * as starImport from "../database/cars";
-// function homepage (){
-//     return 1;
-// }
 
 export const Homepage = () => {
-  // const [car1, car2, car3, car4] = cars;
   const myCarElements = [];
   for (let i = 0; i < cars.length; i++) {
     console.log(cars[i]);
@@ -54,18 +50,8 @@ export const Homepage = () => {
               <HomeIcon />
             </ListItemIcon>
           </ListItem>
-          <ListItem>
-            <ListItemText primary={cars[0].name} secondary="Status" />
-            <ListItemIcon>
-              <ElectricCarIcon />
-            </ListItemIcon>
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Car 2" secondary="Status" />
-            <ListItemIcon>
-              <ElectricCarIcon />
-            </ListItemIcon>
-          </ListItem>
+
+          {/* Map an array method
           {cars.map((currentCar) => (
             <>
               <ListItem>
@@ -78,7 +64,8 @@ export const Homepage = () => {
                 </ListItemIcon>
               </ListItem>
             </>
-          ))}
+          ))} END Mapped array method */}
+
           {myCarElements}
         </List>
       </Box>
