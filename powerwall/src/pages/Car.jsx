@@ -22,13 +22,12 @@ export const Car = () => {
   let { CarID } = useParams();
   const [car, setCar] = React.useState("");
 
-  const handleAddButton = (event) => {
-    // get new Car to add
-    setCar(event.addCar.value);
+  // TO DO: implement array.find() to set car details to display
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
 
-    // set CarID to next ID Number
-    CarID(event.addCar.CarID + 1);
-  };
+  // const handleSelectCarButton = (event) => {
+  //   get selected car to display
+  // };
 
   return (
     <>

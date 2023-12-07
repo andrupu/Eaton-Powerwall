@@ -20,24 +20,22 @@ import InputLabel from "@mui/material/InputLabel";
 import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { useNavigate } from "react-router-dom";
 import { cars } from "../database/cars"; // named import
 // import mything from "../database/cars"; // default import
 // import * as starImport from "../database/cars";
 
 const CarListItem = (props) => {
-  // const [selectedIndex, setSelectedIndex] = React.useState(cars);
+  const { name, carID, status } = props;
 
-  const { name, status } = props;
+  const navigate = useNavigate();
 
-  // const handleListItemClick = (event, index) => {
-  //   setSelectIndex(index);
-  // };
+  const handleListItemClick = () => {
+    navigate("car/" + carID);
+  };
 
   return (
-    <ListItemButton
-    // selected={selectedIndex === cars.carID}
-    // onClick={(event) => handleListItemClick(event, 0)}
-    >
+    <ListItemButton onClick={(event) => handleListItemClick(event)}>
       <ListItemText primary={name} secondary={status} />
       <ListItemIcon>
         <ElectricCarIcon />
@@ -107,8 +105,13 @@ export const Homepage = () => {
           </ListItemButton>
 
           {/* Map an array method */}
-          {myCarElements.map((car, idx) => (
-            <CarListItem name={car.name} status={car.status} key={idx} />
+          {myCarElements.map((car) => (
+            <CarListItem
+              name={car.name}
+              status={car.status}
+              carID={car.carID}
+              key={car.carID}
+            />
           ))}
         </List>
         <Box>
