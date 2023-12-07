@@ -16,6 +16,7 @@ import InputLabel from "@mui/material/InputLabel";
 import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { cars } from "../database/cars";
 
 export const Car = () => {
   let { CarID } = useParams();
@@ -46,23 +47,8 @@ export const Car = () => {
             margin: 3,
           }}
         >
-          <Box>
-            <FormControl>
-              <InputLabel>Car</InputLabel>
-              <Select id="addCar">
-                <MenuItem value={1}>Tesla Model S </MenuItem>
-                <MenuItem value={2}>Telsa Model Y </MenuItem>
-                <MenuItem value={3}>Tesla Model 3 </MenuItem>
-                <MenuItem value={4}>Hyundai Ioniq</MenuItem>
-              </Select>
-              {/* TO DO: Add Alert text for Validation error handling */}
-              <FormHelperText error>Please Select a Car to Add</FormHelperText>
-            </FormControl>
-            {/* TO DO: Add Event Handler to get and set new car to add to Homepage */}
-            <Button onClick={handleAddButton}>Add Car</Button>
-          </Box>
           <span>Car by ID: {CarID} </span>
-          <span>Name: {car} </span>
+          <span>Name: {cars.name} </span>
         </Box>
 
         <Box>

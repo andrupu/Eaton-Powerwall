@@ -104,15 +104,15 @@ export const Homepage = () => {
           <FormControl>
             <InputLabel>Car</InputLabel>
             <Select value={carToAdd} onChange={handleCarSelectChange}>
-              <MenuItem value={1}>Tesla Model S </MenuItem>
-              <MenuItem value={2}>Telsa Model Y </MenuItem>
-              <MenuItem value={3}>Tesla Model 3 </MenuItem>
-              <MenuItem value={4}>Hyundai Ioniq</MenuItem>
+              <MenuItem value={1}> Tesla Model S </MenuItem>
+              <MenuItem value={2}> Telsa Model Y </MenuItem>
+              <MenuItem value={3}> Tesla Model 3 </MenuItem>
+              <MenuItem value={4}> Hyundai Ioniq </MenuItem>
             </Select>
             {/* TO DO: Add Alert text for Validation error handling */}
             <FormHelperText error>Please Select a Car to Add</FormHelperText>
           </FormControl>
-          {/* TO DO: Add Event Handler to get and set new car to add to Homepage */}
+          {/* Done: Add Event Handler to get and set new car to add to Homepage */}
           <Button onClick={handleAddButton}>Add Car</Button>
         </Box>
       </Box>
