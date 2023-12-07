@@ -4,6 +4,7 @@ import {
   Box,
   List,
   ListItem,
+  ListItemButton,
   ListItemText,
   ListItemIcon,
   MenuItem,
@@ -24,14 +25,24 @@ import { cars } from "../database/cars"; // named import
 // import * as starImport from "../database/cars";
 
 const CarListItem = (props) => {
+  // const [selectedIndex, setSelectedIndex] = React.useState(cars);
+
   const { name, status } = props;
+
+  // const handleListItemClick = (event, index) => {
+  //   setSelectIndex(index);
+  // };
+
   return (
-    <ListItem>
+    <ListItemButton
+    // selected={selectedIndex === cars.carID}
+    // onClick={(event) => handleListItemClick(event, 0)}
+    >
       <ListItemText primary={name} secondary={status} />
       <ListItemIcon>
         <ElectricCarIcon />
       </ListItemIcon>
-    </ListItem>
+    </ListItemButton>
   );
 };
 
@@ -88,12 +99,12 @@ export const Homepage = () => {
 
       <Box>
         <List>
-          <ListItem>
+          <ListItemButton>
             <ListItemText primary="My Home" secondary="Status" />
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
-          </ListItem>
+          </ListItemButton>
 
           {/* Map an array method */}
           {myCarElements.map((car, idx) => (
