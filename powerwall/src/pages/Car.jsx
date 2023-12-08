@@ -54,7 +54,8 @@ export const Car = () => {
         <Box>
           <List>
             <InfoListItem title="Status" subtitle="Something went right!" />
-            {/* <InfoListItem title="Battery Type" subtitle={cars.status} />
+            {/* 
+            <InfoListItem title="Battery Type" subtitle={cars.status} />
             <InfoListItem title="Range (EPA est.)" subtitle="315 Miles" />
             <InfoListItem title="Acceleration" subtitle="3.4s 0-60 mph" />
             <InfoListItem title="Drive" subtitle="All Wheel Drive" />
@@ -65,7 +66,8 @@ export const Car = () => {
             <InfoListItem
               title="Display Screen"
               subtitle="15 inch Center Touchsreen"
-            /> */}
+            /> 
+            */}
           </List>
         </Box>
       </Box>

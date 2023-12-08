@@ -52,6 +52,7 @@ export const Homepage = () => {
     setCarToAdd(event.target.value);
   };
 
+  // FOR LOOP to PUSH() cars values into a UI component
   // for (let i = 0; i < cars.length; i++) {
   //   console.log(cars[i]);
   //   myCarElements.push(
@@ -65,23 +66,17 @@ export const Homepage = () => {
   // }
 
   const handleAddButton = (event) => {
-    // TO DO: Refactor if statement 1 line of code total
-    if (carToAdd == 1) {
-      const carData = { name: "Tesla Model S", carID: "1", status: "New Car" };
-      setMyCarElements([...myCarElements, carData]);
-    }
-    if (carToAdd == 2) {
-      const carData = { name: "Tesla Model Y", carID: "2", status: "New Car" };
-      setMyCarElements([...myCarElements, carData]);
-    }
-    if (carToAdd == 3) {
-      const carData = { name: "Tesla Model 3", carID: "3", status: "New Car" };
-      setMyCarElements([...myCarElements, carData]);
-    }
-    if (carToAdd == 4) {
-      const carData = { name: "Hyundai Ioniq", carID: "4", status: "New Car" };
-      setMyCarElements([...myCarElements, carData]);
-    }
+    const carData = [
+      {},
+      { name: "Telsa Model S", carID: 5, status: "New Car" },
+      { name: "Telsa Model Y", carID: 6, status: "New Car" },
+      { name: "Telsa Model 3", carID: 7, status: "New Car" },
+      { name: "Hyundai Ioniq", carID: 8, status: "New Car" },
+    ];
+
+    setMyCarElements([...myCarElements, carData[carToAdd]]);
+    // ...myCarElement = the original data set added copied using the ... operator
+    // carData[carToAdd] = finds the carToAdd and uses the values of its carData
   };
 
   return (
@@ -104,7 +99,7 @@ export const Homepage = () => {
             </ListItemIcon>
           </ListItemButton>
 
-          {/* Map an array method */}
+          {/* Array MAP() method to convert car values to CarListItem UI Component */}
           {myCarElements.map((car) => (
             <CarListItem
               name={car.name}
