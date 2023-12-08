@@ -17,6 +17,11 @@ import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { cars } from "../database/cars";
+import {
+  handleListItemClick,
+  CarListItem,
+  setMyCarElements,
+} from "../pages/Homepage";
 
 export const Car = () => {
   let { CarID } = useParams();
@@ -24,6 +29,9 @@ export const Car = () => {
 
   // TO DO: implement array.find() to set car details to display
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+  // const isCar(carDetails) {
+  //   return carDetails.carID == [carID];
+  // }
 
   // const handleSelectCarButton = (event) => {
   //   get selected car to display
@@ -48,7 +56,7 @@ export const Car = () => {
         >
           <span>Car by ID: {CarID} </span>
           <br />
-          <span>Name: {cars.name} </span>
+          <span>Name: {cars.find((name) => name == { CarListItem })} </span>
         </Box>
 
         <Box>

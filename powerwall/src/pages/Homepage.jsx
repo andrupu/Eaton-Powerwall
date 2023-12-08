@@ -25,7 +25,7 @@ import { cars } from "../database/cars"; // named import
 // import mything from "../database/cars"; // default import
 // import * as starImport from "../database/cars";
 
-const CarListItem = (props) => {
+export const CarListItem = (props) => {
   const { name, carID, status } = props;
 
   const navigate = useNavigate();
@@ -75,7 +75,8 @@ export const Homepage = () => {
     ];
 
     setMyCarElements([...myCarElements, carData[carToAdd]]);
-    // ...myCarElement = the original data set added copied using the ... operator
+    // adds myCarElements (the original data) and carData (from dropdown menu) to setMyCarElements
+    // ...myCarElement = the original data set added to setMyCar Elements, copied using the ... operator
     // carData[carToAdd] = finds the carToAdd and uses the values of its carData
   };
 
