@@ -64,7 +64,13 @@ export const Car = () => {
 
         <Box>
           <List>
-            <InfoListItem title="Status" subtitle="Something went right!" />
+            <InfoListItem
+              title="Status"
+              subtitle={
+                cars.find((element, index, array) => element.carID == CarID)
+                  ?.status
+              }
+            />
             {/* 
             <InfoListItem title="Battery Type" subtitle={cars.status} />
             <InfoListItem title="Range (EPA est.)" subtitle="315 Miles" />
