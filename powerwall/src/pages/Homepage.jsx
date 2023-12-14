@@ -25,28 +25,11 @@ import { cars } from "../database/cars"; // named import
 // import mything from "../database/cars"; // default import
 // import * as starImport from "../database/cars";
 
-export const CarListItem = (props) => {
-  const { name, carID, status } = props;
-
-  const navigate = useNavigate();
-
-  const handleListItemClick = () => {
-    navigate("car/" + carID);
-  };
-
-  return (
-    <ListItemButton onClick={(event) => handleListItemClick(event)}>
-      <ListItemText primary={name} secondary={status} />
-      <ListItemIcon>
-        <ElectricCarIcon />
-      </ListItemIcon>
-    </ListItemButton>
-  );
-};
-
 export const Homepage = () => {
+  //show car list variables
   const [myCarElements, setMyCarElements] = React.useState(cars);
 
+  //Add Car Button variables
   const [carToAdd, setCarToAdd] = React.useState("");
   const handleCarSelectChange = (event) => {
     setCarToAdd(event.target.value);
@@ -127,5 +110,44 @@ export const Homepage = () => {
         </Box>
       </Box>
     </>
+  );
+};
+
+export const CarListItem = (props) => {
+  const { name, carID, status } = props;
+
+  const navigate = useNavigate();
+
+  const handleListItemClick = () => {
+    navigate("car/" + carID);
+  };
+
+  //Remove Car feature
+  const [carToRemove, setCarToRemove] = React.useState("");
+  const handleRemoveCarChange = (event) => {
+    setCarToRemove(event.target.value);
+  };
+
+  const handleRemoveButton = (event) => {
+    // setMyCarElements([...myCarElements, carData[carToRemove]]);
+    carData.splice(carToRemove);
+    setMyCarElements([...myCarElements, carData]);
+    console.log(setMyCarElements);
+    // use array.slice() or array.splice() or array.toSpliced()
+  };
+
+  return (
+    <ListItemButton
+      onClick={(event) => handleListItemClick(event)}
+      onChange={handleRemoveCarChange}
+    >
+      <ListItemText primary={name} secondary={status} />
+      <ListItemIcon>
+        <ElectricCarIcon />
+        <Button value={carToRemove} onClick={handleRemoveButton}>
+          Remove
+        </Button>
+      </ListItemIcon>
+    </ListItemButton>
   );
 };

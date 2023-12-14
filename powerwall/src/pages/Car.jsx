@@ -56,7 +56,10 @@ export const Car = () => {
         >
           <span>Car by ID: {CarID} </span>
           <br />
-          <span>Name: {cars.find((name) => name == { CarListItem })} </span>
+          <span>
+            Name:{" "}
+            {cars.find((element, index, array) => element.carID == CarID)?.name}
+          </span>
         </Box>
 
         <Box>
