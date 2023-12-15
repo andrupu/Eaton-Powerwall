@@ -48,19 +48,32 @@ export const Homepage = () => {
   //   );
   // }
 
-  const handleAddButton = (event) => {
-    const carData = [
-      {},
-      { name: "Telsa Model S", carID: 5, status: "New Car" },
-      { name: "Telsa Model Y", carID: 6, status: "New Car" },
-      { name: "Telsa Model 3", carID: 7, status: "New Car" },
-      { name: "Hyundai Ioniq", carID: 8, status: "New Car" },
-    ];
+  const carData = [
+    {},
+    { name: "Telsa Model S", carID: 5, status: "New Car" },
+    { name: "Telsa Model Y", carID: 6, status: "New Car" },
+    { name: "Telsa Model 3", carID: 7, status: "New Car" },
+    { name: "Hyundai Ioniq", carID: 8, status: "New Car" },
+  ];
 
+  const handleAddButton = (event) => {
     setMyCarElements([...myCarElements, carData[carToAdd]]);
     // adds myCarElements (the original data) and carData (from dropdown menu) to setMyCarElements
     // ...myCarElement = the original data set added to setMyCar Elements, copied using the ... operator
     // carData[carToAdd] = finds the carToAdd and uses the values of its carData
+  };
+
+  const handleRemoveButton = (event, carID) => {
+    // Remove Button is on top of ListItemButton (Button within a Button)
+    // disable ListItemButton in favor of Remove Button
+    event.stopPropagation(); //add event (e) to handleRemoveButton prop or CarListItem
+
+    // Use array.filter() to create a new array
+    // use !== operator to remove whereas === shows what is filtered
+    const filterRemove = myCarElements.filter((car) => car.carID !== carID);
+
+    //set the whole array (myCarElements) to the filterRemove array
+    setMyCarElements(filterRemove);
   };
 
   return (
@@ -90,6 +103,7 @@ export const Homepage = () => {
               status={car.status}
               carID={car.carID}
               key={car.carID}
+              handleRemoveButton={(e) => handleRemoveButton(e, car.carID)}
             />
           ))}
         </List>
@@ -105,7 +119,6 @@ export const Homepage = () => {
             {/* TO DO: Add Alert text for Validation error handling */}
             <FormHelperText error>Please Select a Car to Add</FormHelperText>
           </FormControl>
-          {/* Done: Add Event Handler to get and set new car to add to Homepage */}
           <Button onClick={handleAddButton}>Add Car</Button>
         </Box>
       </Box>
@@ -114,7 +127,7 @@ export const Homepage = () => {
 };
 
 export const CarListItem = (props) => {
-  const { name, carID, status } = props;
+  const { name, carID, status, handleRemoveButton } = props;
 
   const navigate = useNavigate();
 
@@ -128,14 +141,6 @@ export const CarListItem = (props) => {
     setCarToRemove(event.target.value);
   };
 
-  const handleRemoveButton = (event) => {
-    // setMyCarElements([...myCarElements, carData[carToRemove]]);
-    carData.splice(carToRemove);
-    setMyCarElements([...myCarElements, carData]);
-    console.log(setMyCarElements);
-    // use array.slice() or array.splice() or array.toSpliced()
-  };
-
   return (
     <ListItemButton
       onClick={(event) => handleListItemClick(event)}
@@ -144,7 +149,7 @@ export const CarListItem = (props) => {
       <ListItemText primary={name} secondary={status} />
       <ListItemIcon>
         <ElectricCarIcon />
-        <Button value={carToRemove} onClick={handleRemoveButton}>
+        <Button value={carToRemove} onClick={(e) => handleRemoveButton(e)}>
           Remove
         </Button>
       </ListItemIcon>
