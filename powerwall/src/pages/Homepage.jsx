@@ -7,6 +7,7 @@ import {
   ListItemButton,
   ListItemText,
   ListItemIcon,
+  Menu,
   MenuItem,
   Toolbar,
   IconButton,
@@ -81,7 +82,13 @@ export const Homepage = () => {
       <AppBar position={"sticky"}>
         <Toolbar>
           <IconButton color="inherit">
-            <MenuIcon />
+            <MenuIcon>
+              <Menu>
+                <MenuItem>Homepage</MenuItem>
+                <MenuItem>Dashboard</MenuItem>
+                <MenuItem>Car Details</MenuItem>
+              </Menu>
+            </MenuIcon>
           </IconButton>
           <Typography variant={"h6"}>Homepage</Typography>
         </Toolbar>
