@@ -25,7 +25,7 @@ import {
 
 export const Car = () => {
   let { CarID } = useParams();
-  const [car, setCar] = React.useState("");
+  // const [car, setCar] = React.useState("");
 
   // TO DO: implement array.find() to set car details to display
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
