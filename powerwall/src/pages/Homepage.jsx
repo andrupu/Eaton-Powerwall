@@ -113,6 +113,7 @@ export const Homepage = () => {
     // Use array.filter() to create a new array
     // use !== operator to remove whereas === shows what is filtered
     const filterRemove = myCarElements.filter((car) => car.carID !== carID);
+    // newVariable = arrayTOsearch.filter((haystack) => needle === haystack)
 
     //set the whole array (myCarElements) to the filterRemove array
     setMyCarElements(filterRemove);

@@ -29,13 +29,8 @@ export const Car = () => {
 
   // TO DO: implement array.find() to set car details to display
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
-  // const isCar(carDetails) {
-  //   return carDetails.carID == [carID];
-  // }
-
-  // const handleSelectCarButton = (event) => {
-  //   get selected car to display
-  // };
+  const carToDisplay = cars.find((element) => element.carID == CarID);
+  // newVariable = arrayTOsearch.find((haystack) => needle === haystack)
 
   return (
     <>
@@ -57,8 +52,8 @@ export const Car = () => {
           <span>Car by ID: {CarID} </span>
           <br />
           <span>
-            Name:{" "}
-            {cars.find((element, index, array) => element.carID == CarID)?.name}
+            Name: {carToDisplay?.name}
+            {/* {cars.find((element, index, array) => element.carID == CarID)?.name} */}
           </span>
         </Box>
 
@@ -66,10 +61,8 @@ export const Car = () => {
           <List>
             <InfoListItem
               title="Status"
-              subtitle={
-                cars.find((element, index, array) => element.carID == CarID)
-                  ?.status
-              }
+              subtitle={carToDisplay?.status}
+              // cars.find((element, index, array) => element.carID == CarID)?.status}
             />
             {/* 
             <InfoListItem title="Battery Type" subtitle={cars.status} />
