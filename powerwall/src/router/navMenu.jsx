@@ -43,6 +43,7 @@ export const NavMenu = () => {
 
     // In the case of Car page navigate to CarID 1 by default : otherwise just navigateTo
     navigate(navigateTo === "Car" ? `/${navigateTo}/1` : "/" + navigateTo);
+    // Add / symbol to change from relavitve path to absolute path
   };
 
   return (
