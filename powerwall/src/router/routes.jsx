@@ -3,7 +3,7 @@
 export const Pages = [
   {
     // title: "Homepage",
-    route: "/", //http://localhost/3000 and no /homepage
+    route: "", //http://localhost/3000 and no /homepage
     // component: Homepage,
   },
   {

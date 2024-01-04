@@ -1,4 +1,5 @@
 import React from "react";
+import { NavMenu } from "../router/navMenu";
 import { Hero } from "@brightlayer-ui/react-components/core/Hero";
 import { HeroBanner } from "@brightlayer-ui/react-components/core/HeroBanner";
 import { InfoListItem } from "@brightlayer-ui/react-components/core/InfoListItem";
@@ -48,9 +49,7 @@ export const Dashboard = () => {
     <>
       <AppBar position={"sticky"}>
         <Toolbar>
-          <IconButton color="inherit">
-            <MenuIcon />
-          </IconButton>
+          <NavMenu />
           <Typography variant={"h6"}>Dashboard</Typography>
         </Toolbar>
       </AppBar>
