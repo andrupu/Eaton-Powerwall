@@ -1,4 +1,5 @@
 import React from "react";
+import { NavMenu } from "../router/navMenu";
 import { useParams } from "react-router-dom";
 import { InfoListItem } from "@brightlayer-ui/react-components/core/InfoListItem";
 import {
@@ -39,6 +40,7 @@ export const Car = () => {
           <IconButton color="inherit">
             <MenuIcon />
           </IconButton>
+          <NavMenu />
           <Typography variant={"h6"}>Cars</Typography>
         </Toolbar>
       </AppBar>

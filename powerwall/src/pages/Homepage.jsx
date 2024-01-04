@@ -1,4 +1,5 @@
 import React from "react";
+import { NavMenu } from "../router/navMenu";
 import {
   AppBar,
   Box,
@@ -126,6 +127,7 @@ export const Homepage = () => {
           <IconButton onClick={handleNavOpen} color="inherit">
             <MenuIcon />
           </IconButton>
+          {/* <NavMenu /> */}
           <Menu open={open} onClose={handleNavClose} anchorEl={anchor}>
             <MenuItem onClick={handleNavItemClick}>Homepage</MenuItem>
             <MenuItem onClick={handleNavItemClick}>Dashboard</MenuItem>
