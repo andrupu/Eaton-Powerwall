@@ -49,9 +49,6 @@ export const Dashboard = () => {
     <>
       <AppBar position={"sticky"}>
         <Toolbar>
-          <IconButton color="inherit">
-            <MenuIcon />
-          </IconButton>
           <NavMenu />
           <Typography variant={"h6"}>Dashboard</Typography>
         </Toolbar>
