@@ -2,24 +2,8 @@ import React from "react";
 import { NavMenu } from "../router/navMenu";
 import { useParams } from "react-router-dom";
 import { InfoListItem } from "@brightlayer-ui/react-components/core/InfoListItem";
-import {
-  AppBar,
-  Box,
-  List,
-  Toolbar,
-  IconButton,
-  Typography,
-  MenuItem,
-} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import Button from "@mui/material/Button";
-import InputLabel from "@mui/material/InputLabel";
-import FormHelperText from "@mui/material/FormHelperText";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import { cars, carData } from "../database/cars";
+import { AppBar, Box, List, Toolbar, Typography } from "@mui/material";
 import { CarDataContext } from "../index";
-import { handleListItemClick, CarListItem } from "../pages/Homepage";
 
 export const Car = () => {
   let { CarID } = useParams();

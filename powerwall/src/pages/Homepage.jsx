@@ -4,14 +4,11 @@ import {
   AppBar,
   Box,
   List,
-  ListItem,
   ListItemButton,
   ListItemText,
   ListItemIcon,
-  Menu,
   MenuItem,
   Toolbar,
-  IconButton,
   Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -52,15 +49,6 @@ export const Homepage = () => {
   //     </ListItem>
   //   );
   // }
-
-  // carData moved to database/cars.jsx
-  // const carData = [
-  //   {},
-  //   { name: "Telsa Model S", carID: 5, status: "New Car" },
-  //   { name: "Telsa Model Y", carID: 6, status: "New Car" },
-  //   { name: "Telsa Model 3", carID: 7, status: "New Car" },
-  //   { name: "Hyundai Ioniq", carID: 8, status: "New Car" },
-  // ];
 
   const handleAddButton = (event) => {
     setMyCarElements([...myCarElements, carData[carToAdd]]);
