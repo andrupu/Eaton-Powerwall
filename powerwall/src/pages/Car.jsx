@@ -2,35 +2,16 @@ import React from "react";
 import { NavMenu } from "../router/navMenu";
 import { useParams } from "react-router-dom";
 import { InfoListItem } from "@brightlayer-ui/react-components/core/InfoListItem";
-import {
-  AppBar,
-  Box,
-  List,
-  Toolbar,
-  IconButton,
-  Typography,
-  MenuItem,
-} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import Button from "@mui/material/Button";
-import InputLabel from "@mui/material/InputLabel";
-import FormHelperText from "@mui/material/FormHelperText";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import { cars } from "../database/cars";
-import {
-  handleListItemClick,
-  CarListItem,
-  setMyCarElements,
-} from "../pages/Homepage";
+import { AppBar, Box, List, Toolbar, Typography } from "@mui/material";
+import { CarDataContext } from "../index";
 
 export const Car = () => {
   let { CarID } = useParams();
-  // const [car, setCar] = React.useState("");
+  const { myCarElements } = React.useContext(CarDataContext);
 
-  // TO DO: implement array.find() to set car details to display
+  // Implement array.find() to set car details to display
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
-  const carToDisplay = cars.find((element) => element.carID == CarID);
+  const carToDisplay = myCarElements.find((element) => element.carID == CarID);
   // newVariable = arrayTOsearch.find((haystack) => needle === haystack)
 
   return (

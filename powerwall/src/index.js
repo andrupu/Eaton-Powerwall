@@ -7,6 +7,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Homepage } from './pages/Homepage';
 import { Dashboard } from './pages/Dashboard';
 import { Car } from './pages/Car';
+import { cars } from "./database/cars";
+import { createContext } from 'react';
 
 // Import BLUI Theming
 import { ThemeProvider, createTheme } from '@mui/material';
@@ -16,32 +18,25 @@ import '@brightlayer-ui/react-themes/open-sans';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// export const Pages = [
-//     {
-//         title: 'Homepage',
-//         route: '../pages/Homepage',
-//         component: Homepage,
-//     },
-//     {
-//         title: 'Dashboard',
-//         route: '../pages/Dashboard',
-//         component: Dashboard,
-//     },
-//     {
-//         title: 'Car1',
-//         route: '../pages/Car1',
-//         component: Car1,
-//     },
-//     {
-//         title: 'Car2',
-//         route: '../pages/Car2',
-//         component: Car2,
-//     },
-// ];
+// Use ContextProvider to Pass data down from the root parent
+export const CarDataContext = createContext("");
+// Not allowed to use React Hooks at top-level index
+// So create UI ELement and nest ContextProvider in it
+const CarDataProvider = ({children}) => {
+
+        const [myCarElements, setMyCarElements] = React.useState(cars);
+
+        return (
+            <CarDataContext.Provider value={{myCarElements, setMyCarElements}}>
+                {children}
+            </CarDataContext.Provider>
+        )
+    }
 
 root.render(
   // <StyledEnginePorvider injectFirst>
     <ThemeProvider theme={createTheme(BLUIThemes.blue)}>
+      <CarDataProvider>
       <CssBaseline/>
       <BrowserRouter>
         <Routes>
@@ -52,6 +47,7 @@ root.render(
         </Routes>
         {/* <App /> */}
       </BrowserRouter>
+      </CarDataProvider>
     </ThemeProvider>
   // </StyledEnginePorvider>
 

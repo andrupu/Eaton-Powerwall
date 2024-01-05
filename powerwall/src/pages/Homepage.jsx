@@ -4,14 +4,11 @@ import {
   AppBar,
   Box,
   List,
-  ListItem,
   ListItemButton,
   ListItemText,
   ListItemIcon,
-  Menu,
   MenuItem,
   Toolbar,
-  IconButton,
   Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -24,18 +21,20 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useNavigate } from "react-router-dom";
 import { Pages } from "../router/routes";
-import { cars } from "../database/cars"; // named import
+import { cars, carData } from "../database/cars"; // named import
+import { CarDataContext } from "../index";
 // import mything from "../database/cars";// default import
 // import * as starImport from "../database/cars";
 
 export const Homepage = () => {
   //show car list variables
-  const [myCarElements, setMyCarElements] = React.useState(cars);
+  const { myCarElements, setMyCarElements } = React.useContext(CarDataContext);
 
   //Add Car Button variables
   const [carToAdd, setCarToAdd] = React.useState("");
   const handleCarSelectChange = (event) => {
     setCarToAdd(event.target.value);
+    console.log(myCarElements);
   };
 
   // FOR LOOP to PUSH() cars values into a UI component
@@ -50,54 +49,6 @@ export const Homepage = () => {
   //     </ListItem>
   //   );
   // }
-
-  const carData = [
-    {},
-    { name: "Telsa Model S", carID: 5, status: "New Car" },
-    { name: "Telsa Model Y", carID: 6, status: "New Car" },
-    { name: "Telsa Model 3", carID: 7, status: "New Car" },
-    { name: "Hyundai Ioniq", carID: 8, status: "New Car" },
-  ];
-
-  // const [open, setOpen] = React.useState(false);
-  // const [anchor, setAnchor] = React.useState(null);
-  // const navigate = useNavigate();
-
-  // const handleNavOpen = (event) => {
-  //   setAnchor(event.currentTarget);
-  //   setOpen(true);
-  // };
-  // const handleNavClose = () => {
-  //   setAnchor(null);
-  //   setOpen(false);
-  // };
-
-  // const handleNavItemClick = (event) => {
-  //   // set targetRoute equal to MenuItem innerText
-  //   let targetRoute = event.target.innerText;
-
-  //   //have switch statement to handle MenuItems with different TargetRoute names
-  //   switch (targetRoute) {
-  //     default:
-  //     case "Homepage":
-  //       targetRoute = "/";
-  //       break;
-  //     case "Dashboard":
-  //       targetRoute = "Dashboard";
-  //       break;
-  //     case "Car Details":
-  //       targetRoute = "Car";
-  //       break;
-  //   }
-
-  //   // array.find for the targetRoute of each MenuItem
-  //   const navigateTo = Pages.find(
-  //     (element) => element.route === targetRoute
-  //   ).route;
-
-  //   // In the case of Car page navigate to CarID 1 by default : otherwise just navigateTo
-  //   navigate(navigateTo === "Car" ? `${navigateTo}/1` : navigateTo);
-  // };
 
   const handleAddButton = (event) => {
     setMyCarElements([...myCarElements, carData[carToAdd]]);
@@ -125,11 +76,6 @@ export const Homepage = () => {
       <AppBar position={"sticky"}>
         <Toolbar>
           <NavMenu />
-          {/* <Menu open={open} onClose={handleNavClose} anchorEl={anchor}>
-            <MenuItem onClick={handleNavItemClick}>Homepage</MenuItem>
-            <MenuItem onClick={handleNavItemClick}>Dashboard</MenuItem>
-            <MenuItem onClick={handleNavItemClick}>Car Details</MenuItem>
-          </Menu> */}
           <Typography variant={"h6"}>Homepage</Typography>
         </Toolbar>
       </AppBar>
