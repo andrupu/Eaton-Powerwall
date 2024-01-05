@@ -17,20 +17,17 @@ import InputLabel from "@mui/material/InputLabel";
 import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { cars } from "../database/cars";
-import {
-  handleListItemClick,
-  CarListItem,
-  setMyCarElements,
-} from "../pages/Homepage";
+import { cars, carData } from "../database/cars";
+import { CarDataContext } from "../index";
+import { handleListItemClick, CarListItem } from "../pages/Homepage";
 
 export const Car = () => {
   let { CarID } = useParams();
-  // const [car, setCar] = React.useState("");
+  const { myCarElements } = React.useContext(CarDataContext);
 
-  // TO DO: implement array.find() to set car details to display
+  // Implement array.find() to set car details to display
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
-  const carToDisplay = cars.find((element) => element.carID == CarID);
+  const carToDisplay = myCarElements.find((element) => element.carID == CarID);
   // newVariable = arrayTOsearch.find((haystack) => needle === haystack)
 
   return (
