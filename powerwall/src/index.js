@@ -18,6 +18,18 @@ import '@brightlayer-ui/react-themes/open-sans';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+export const ThemeSwitchContext = createContext("");
+export const ThemeSwitchProvider = (props) => {
+  const [isLightTheme, setIsLightTheme] = React.useState(true);
+
+  return (
+    <ThemeProvider theme={createTheme(isLightTheme ? BLUIThemes.blue : BLUIThemes.blueDark)}>
+       <ThemeSwitchContext.Provider value={{isLightTheme, setIsLightTheme}}>{props.children}</ThemeSwitchContext.Provider>
+        
+    </ThemeProvider>
+  )
+}
+
 // Use ContextProvider to Pass data down from the root parent
 export const CarDataContext = createContext("");
 // Not allowed to use React Hooks at top-level index
@@ -35,7 +47,8 @@ const CarDataProvider = ({children}) => {
 
 root.render(
   // <StyledEnginePorvider injectFirst>
-    <ThemeProvider theme={createTheme(BLUIThemes.blue)}>
+  <ThemeSwitchProvider>
+    {/* <ThemeProvider theme={createTheme(BLUIThemes.blue)}> */}
       <CarDataProvider>
       <CssBaseline/>
       <BrowserRouter>
@@ -48,7 +61,8 @@ root.render(
         {/* <App /> */}
       </BrowserRouter>
       </CarDataProvider>
-    </ThemeProvider>
+    {/* </ThemeProvider> */}
+    </ThemeSwitchProvider>
   // </StyledEnginePorvider>
 
 );
