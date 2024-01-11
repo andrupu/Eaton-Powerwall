@@ -1,5 +1,6 @@
 import React from "react";
 import { NavMenu } from "../router/navMenu";
+// import AppBar from "@mui/material/AppBar"; Import only AppBar Component
 import {
   AppBar,
   Box,
@@ -10,10 +11,14 @@ import {
   MenuItem,
   Toolbar,
   Typography,
+  Switch,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
 import ElectricCarIcon from "@mui/icons-material/ElectricCar";
+// import { LightMode } from "@mui/icons-material"; // Loads all icons too
+import LightModeIcon from "@mui/icons-material/LightMode"; // Imports specific Icon
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 import Button from "@mui/material/Button";
 import InputLabel from "@mui/material/InputLabel";
 import FormHelperText from "@mui/material/FormHelperText";
@@ -23,6 +28,7 @@ import { useNavigate } from "react-router-dom";
 import { Pages } from "../router/routes";
 import { cars, carData } from "../database/cars"; // named import
 import { CarDataContext } from "../index";
+import { ThemeSwitcher } from "../sharedComponents/ThemeSwitcher";
 // import mything from "../database/cars";// default import
 // import * as starImport from "../database/cars";
 
@@ -77,6 +83,7 @@ export const Homepage = () => {
         <Toolbar>
           <NavMenu />
           <Typography variant={"h6"}>Homepage</Typography>
+          <ThemeSwitcher />
         </Toolbar>
       </AppBar>
 

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { InfoListItem } from "@brightlayer-ui/react-components/core/InfoListItem";
 import { AppBar, Box, List, Toolbar, Typography } from "@mui/material";
 import { CarDataContext } from "../index";
+import { ThemeSwitcher } from "../sharedComponents/ThemeSwitcher";
 
 export const Car = () => {
   let { CarID } = useParams();
@@ -20,6 +21,7 @@ export const Car = () => {
         <Toolbar>
           <NavMenu />
           <Typography variant={"h6"}>Cars</Typography>
+          <ThemeSwitcher />
         </Toolbar>
       </AppBar>
 
