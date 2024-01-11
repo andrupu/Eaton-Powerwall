@@ -21,6 +21,7 @@ import ElectricCarIcon from "@mui/icons-material/ElectricCar";
 import SolarPowerIcon from "@mui/icons-material/SolarPower";
 import ElectricMeterIcon from "@mui/icons-material/ElectricMeter";
 import { useTheme } from "@mui/material/styles";
+import { ThemeSwitcher } from "../sharedComponents/ThemeSwitcher";
 
 // function homepage (){
 //     return 1;
@@ -51,6 +52,7 @@ export const Dashboard = () => {
         <Toolbar>
           <NavMenu />
           <Typography variant={"h6"}>Dashboard</Typography>
+          <ThemeSwitcher />
         </Toolbar>
       </AppBar>
 
