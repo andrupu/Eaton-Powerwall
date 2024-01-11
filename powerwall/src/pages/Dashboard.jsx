@@ -7,17 +7,13 @@ import {
   AppBar,
   Box,
   List,
-  ListItem,
-  ListItemText,
-  ListItemIcon,
+  ListItemButton,
   Toolbar,
   IconButton,
   Typography,
   Divider,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
-import ElectricCarIcon from "@mui/icons-material/ElectricCar";
 import SolarPowerIcon from "@mui/icons-material/SolarPower";
 import ElectricMeterIcon from "@mui/icons-material/ElectricMeter";
 import { useTheme } from "@mui/material/styles";
