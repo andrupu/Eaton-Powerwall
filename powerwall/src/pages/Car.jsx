@@ -29,11 +29,19 @@ export const Car = () => {
         </Toolbar>
       </AppBar>
 
-      <Box>
-        <Box>
+      <Box sx={{ display: "flex" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "flex-start",
+            flexDirection: "column",
+            borderRight: "3px solid black",
+            height: "100vh",
+          }}
+        >
           {/* <CarListItem /> */}
           {myCarElements.map((car) => (
-            <CarDetailsList
+            <CarDetailsListItem
               name={car.name}
               status={car.status}
               carID={car.carID}
@@ -44,25 +52,33 @@ export const Car = () => {
 
         <Box
           sx={{
-            margin: 3,
+            display: "flex",
+            justifyContent: "left",
+            flexDirection: "column",
           }}
         >
-          <span>Car by ID: {CarID} </span>
-          <br />
-          <span>
-            Name: {carToDisplay?.name}
-            {/* {cars.find((element, index, array) => element.carID == CarID)?.name} */}
-          </span>
-        </Box>
+          <Box
+            sx={{
+              margin: 2,
+            }}
+          >
+            <span>Car by ID: {CarID} </span>
+            <br />
+            <span>
+              Name: {carToDisplay?.name}
+              {/* {cars.find((element, index, array) => element.carID == CarID)?.name} */}
+            </span>
+          </Box>
 
-        <Box>
-          <List>
-            <InfoListItem
-              title="Status"
-              subtitle={carToDisplay?.status}
-              // cars.find((element, index, array) => element.carID == CarID)?.status}
-            />
-            {/* 
+          <Box sx={{ display: "flex", justifyContent: "left" }}>
+            <List>
+              <InfoListItem
+                title="Status"
+                subtitle={carToDisplay?.status}
+                hidePadding
+                // cars.find((element, index, array) => element.carID == CarID)?.status}
+              />
+              {/* 
             <InfoListItem title="Battery Type" subtitle={cars.status} />
             <InfoListItem title="Range (EPA est.)" subtitle="315 Miles" />
             <InfoListItem title="Acceleration" subtitle="3.4s 0-60 mph" />
@@ -76,14 +92,15 @@ export const Car = () => {
               subtitle="15 inch Center Touchsreen"
             /> 
             */}
-          </List>
+            </List>
+          </Box>
         </Box>
       </Box>
     </>
   );
 };
 
-export const CarDetailsList = (props) => {
+export const CarDetailsListItem = (props) => {
   const { name, carID } = props;
   const navigate = useNavigate();
 
@@ -95,7 +112,14 @@ export const CarDetailsList = (props) => {
   };
 
   return (
-    <ListItemButton onClick={(event) => handleCarListClick(event)}>
+    <ListItemButton
+      onClick={(event) => handleCarListClick(event)}
+      sx={{
+        // display: "flex",
+        flex: "0 0 auto",
+        borderBottom: "1px solid black",
+      }}
+    >
       <ListItemText primary={name} secondary={carID} />
     </ListItemButton>
   );
