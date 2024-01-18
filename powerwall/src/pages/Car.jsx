@@ -8,6 +8,7 @@ import { CarListItem } from "./Homepage";
 import { CarDataContext } from "../index";
 import { ThemeSwitcher } from "../sharedComponents/ThemeSwitcher";
 import { useNavigate } from "react-router-dom";
+import { Pages } from "../router/routes";
 
 export const Car = () => {
   let { CarID } = useParams();
@@ -84,16 +85,17 @@ export const Car = () => {
 
 export const CarDetailsList = (props) => {
   const { name, carID } = props;
-
   const navigate = useNavigate();
 
-  const handleListItemClick = () => {
-    navigate("car/" + carID);
+  const handleCarListClick = (event) => {
+    //navigate("car/" + carID)
+    navigate("/car/" + carID); //works (needs / in front to become absolute path)
     // navigate(carID);
+    // navigate("/car" + `/${carID}/`); //works (add ${} to variable to include / prior)
   };
 
   return (
-    <ListItemButton onClick={(event) => handleListItemClick(event)}>
+    <ListItemButton onClick={(event) => handleCarListClick(event)}>
       <ListItemText primary={name} secondary={carID} />
     </ListItemButton>
   );
