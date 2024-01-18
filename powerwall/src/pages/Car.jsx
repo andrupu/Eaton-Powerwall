@@ -3,8 +3,11 @@ import { NavMenu } from "../router/navMenu";
 import { useParams } from "react-router-dom";
 import { InfoListItem } from "@brightlayer-ui/react-components/core/InfoListItem";
 import { AppBar, Box, List, Toolbar, Typography } from "@mui/material";
+import { ListItemButton, ListItemText, Button } from "@mui/material";
+import { CarListItem } from "./Homepage";
 import { CarDataContext } from "../index";
 import { ThemeSwitcher } from "../sharedComponents/ThemeSwitcher";
+import { useNavigate } from "react-router-dom";
 
 export const Car = () => {
   let { CarID } = useParams();
@@ -26,6 +29,18 @@ export const Car = () => {
       </AppBar>
 
       <Box>
+        <Box>
+          {/* <CarListItem /> */}
+          {myCarElements.map((car) => (
+            <CarDetailsList
+              name={car.name}
+              status={car.status}
+              carID={car.carID}
+              key={car.carID}
+            />
+          ))}
+        </Box>
+
         <Box
           sx={{
             margin: 3,
@@ -64,5 +79,22 @@ export const Car = () => {
         </Box>
       </Box>
     </>
+  );
+};
+
+export const CarDetailsList = (props) => {
+  const { name, carID } = props;
+
+  const navigate = useNavigate();
+
+  const handleListItemClick = () => {
+    navigate("car/" + carID);
+    // navigate(carID);
+  };
+
+  return (
+    <ListItemButton onClick={(event) => handleListItemClick(event)}>
+      <ListItemText primary={name} secondary={carID} />
+    </ListItemButton>
   );
 };
